@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www2.mon.bg/nacid" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www2.mon.bg/nacid" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www2.mon.bg/nacid">
+      <s:element name="getStudentDataFromEGN_AdminRD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intStudentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGN_AdminRDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentDataFromEGN_AdminRDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGN_AdminRDC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intStudentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGN_AdminRDCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentDataFromEGN_AdminRDCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGN_AdminRHE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intStudentID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGN_AdminRHEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentDataFromEGN_AdminRHEResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromLIN_AdminRHE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intStudentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromLIN_AdminRHEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentDataFromLIN_AdminRHEResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentPEDataFromEGN_AdminRHE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intStudentID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentPEDataFromEGN_AdminRHEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentPEDataFromEGN_AdminRHEResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentPEDataFromLIN_AdminRHE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intStudentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentPEDataFromLIN_AdminRHEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentPEDataFromLIN_AdminRHEResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getStudentDataFromEGN_AdminRDSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN_AdminRD" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGN_AdminRDSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN_AdminRDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGN_AdminRDCSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN_AdminRDC" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGN_AdminRDCSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN_AdminRDCResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGN_AdminRHESoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN_AdminRHE" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGN_AdminRHESoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN_AdminRHEResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromLIN_AdminRHESoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromLIN_AdminRHE" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromLIN_AdminRHESoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromLIN_AdminRHEResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentPEDataFromEGN_AdminRHESoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentPEDataFromEGN_AdminRHE" />
+  </wsdl:message>
+  <wsdl:message name="getStudentPEDataFromEGN_AdminRHESoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentPEDataFromEGN_AdminRHEResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentPEDataFromLIN_AdminRHESoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentPEDataFromLIN_AdminRHE" />
+  </wsdl:message>
+  <wsdl:message name="getStudentPEDataFromLIN_AdminRHESoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentPEDataFromLIN_AdminRHEResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsSoap">
+    <wsdl:operation name="getStudentDataFromEGN_AdminRD">
+      <wsdl:input message="tns:getStudentDataFromEGN_AdminRDSoapIn" />
+      <wsdl:output message="tns:getStudentDataFromEGN_AdminRDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN_AdminRDC">
+      <wsdl:input message="tns:getStudentDataFromEGN_AdminRDCSoapIn" />
+      <wsdl:output message="tns:getStudentDataFromEGN_AdminRDCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN_AdminRHE">
+      <wsdl:input message="tns:getStudentDataFromEGN_AdminRHESoapIn" />
+      <wsdl:output message="tns:getStudentDataFromEGN_AdminRHESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromLIN_AdminRHE">
+      <wsdl:input message="tns:getStudentDataFromLIN_AdminRHESoapIn" />
+      <wsdl:output message="tns:getStudentDataFromLIN_AdminRHESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentPEDataFromEGN_AdminRHE">
+      <wsdl:input message="tns:getStudentPEDataFromEGN_AdminRHESoapIn" />
+      <wsdl:output message="tns:getStudentPEDataFromEGN_AdminRHESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentPEDataFromLIN_AdminRHE">
+      <wsdl:input message="tns:getStudentPEDataFromLIN_AdminRHESoapIn" />
+      <wsdl:output message="tns:getStudentPEDataFromLIN_AdminRHESoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSoap" type="tns:wsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStudentDataFromEGN_AdminRD">
+      <soap:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromEGN_AdminRD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN_AdminRDC">
+      <soap:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromEGN_AdminRDC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN_AdminRHE">
+      <soap:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromEGN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromLIN_AdminRHE">
+      <soap:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromLIN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentPEDataFromEGN_AdminRHE">
+      <soap:operation soapAction="http://www2.mon.bg/nacid/getStudentPEDataFromEGN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentPEDataFromLIN_AdminRHE">
+      <soap:operation soapAction="http://www2.mon.bg/nacid/getStudentPEDataFromLIN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSoap12" type="tns:wsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStudentDataFromEGN_AdminRD">
+      <soap12:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromEGN_AdminRD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN_AdminRDC">
+      <soap12:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromEGN_AdminRDC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN_AdminRHE">
+      <soap12:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromEGN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromLIN_AdminRHE">
+      <soap12:operation soapAction="http://www2.mon.bg/nacid/getStudentDataFromLIN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentPEDataFromEGN_AdminRHE">
+      <soap12:operation soapAction="http://www2.mon.bg/nacid/getStudentPEDataFromEGN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentPEDataFromLIN_AdminRHE">
+      <soap12:operation soapAction="http://www2.mon.bg/nacid/getStudentPEDataFromLIN_AdminRHE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsnacid">
+    <wsdl:port name="wsSoap" binding="tns:wsSoap">
+      <soap:address location="http://www2.mon.bg/ws_nacid/ws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSoap12" binding="tns:wsSoap12">
+      <soap12:address location="http://www2.mon.bg/ws_nacid/ws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

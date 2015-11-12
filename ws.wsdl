@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www2.mon.bg/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www2.mon.bg/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www2.mon.bg/">
+      <s:element name="getServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getServerResult" type="tns:AdminRDServer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdminRDServer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Server" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Server" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strUserPass" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getServerRHE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerRHEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getServerRHEResult" type="tns:AdminRDServer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerRHEOuter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerRHEOuterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getServerRHEOuterResult" type="tns:AdminRDServer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intApplicationPartID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVersionResult" type="tns:AdminRDVersion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdminRDVersion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Version" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Version" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="intMajorVersion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="intMinorCritical" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="intMinorVersion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="vcLink" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getStudentDataFromEGN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intStudentID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentDataFromEGNResult" type="tns:AdminRDStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdminRDStudent">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:student" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="student" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getStudentDataFromEGNExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intStudentID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentDataFromEGNExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentDataFromEGNExtendedResult" type="tns:AdminRDStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUniversityStudentDataFromEGN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intStudentID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUniversityStudentDataFromEGNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUniversityStudentDataFromEGNResult" type="tns:AdminRDStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getIndicatorsData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getIndicatorsDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getIndicatorsDataResult" type="tns:Sirma_IndicatorInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sirma_IndicatorInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UniRanking_Indicators" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UniRanking_Indicators" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getUniversitiesData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUniversitiesDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUniversitiesDataResult" type="tns:Sirma_UniversityInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sirma_UniversityInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UniRanking_Universities" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UniRanking_Universities" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSpecialitiesData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSpecialitiesDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSpecialitiesDataResult" type="tns:Sirma_SpecialityInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sirma_SpecialityInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UniRanking_Specialities" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UniRanking_Specialities" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getProfNapravleniaData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProfNapravleniaDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProfNapravleniaDataResult" type="tns:Sirma_ProfNapravleniaInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sirma_ProfNapravleniaInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UniRanking_ProfNapravlenia" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UniRanking_ProfNapravlenia" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getValidDatesData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getValidDatesDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getValidDatesDataResult" type="tns:Sirma_ValidDatesInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sirma_ValidDatesInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UniRanking_ValidDates" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UniRanking_ValidDates" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getServerSoapIn">
+    <wsdl:part name="parameters" element="tns:getServer" />
+  </wsdl:message>
+  <wsdl:message name="getServerSoapOut">
+    <wsdl:part name="parameters" element="tns:getServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServerRHESoapIn">
+    <wsdl:part name="parameters" element="tns:getServerRHE" />
+  </wsdl:message>
+  <wsdl:message name="getServerRHESoapOut">
+    <wsdl:part name="parameters" element="tns:getServerRHEResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServerRHEOuterSoapIn">
+    <wsdl:part name="parameters" element="tns:getServerRHEOuter" />
+  </wsdl:message>
+  <wsdl:message name="getServerRHEOuterSoapOut">
+    <wsdl:part name="parameters" element="tns:getServerRHEOuterResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:getVersion" />
+  </wsdl:message>
+  <wsdl:message name="getVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:getVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGNSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGN" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGNSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGNResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGNExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGNExtended" />
+  </wsdl:message>
+  <wsdl:message name="getStudentDataFromEGNExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentDataFromEGNExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUniversityStudentDataFromEGNSoapIn">
+    <wsdl:part name="parameters" element="tns:getUniversityStudentDataFromEGN" />
+  </wsdl:message>
+  <wsdl:message name="getUniversityStudentDataFromEGNSoapOut">
+    <wsdl:part name="parameters" element="tns:getUniversityStudentDataFromEGNResponse" />
+  </wsdl:message>
+  <wsdl:message name="getIndicatorsDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getIndicatorsData" />
+  </wsdl:message>
+  <wsdl:message name="getIndicatorsDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getIndicatorsDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUniversitiesDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getUniversitiesData" />
+  </wsdl:message>
+  <wsdl:message name="getUniversitiesDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getUniversitiesDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSpecialitiesDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getSpecialitiesData" />
+  </wsdl:message>
+  <wsdl:message name="getSpecialitiesDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getSpecialitiesDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProfNapravleniaDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getProfNapravleniaData" />
+  </wsdl:message>
+  <wsdl:message name="getProfNapravleniaDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getProfNapravleniaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getValidDatesDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getValidDatesData" />
+  </wsdl:message>
+  <wsdl:message name="getValidDatesDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getValidDatesDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsSoap">
+    <wsdl:operation name="getServer">
+      <wsdl:input message="tns:getServerSoapIn" />
+      <wsdl:output message="tns:getServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerRHE">
+      <wsdl:input message="tns:getServerRHESoapIn" />
+      <wsdl:output message="tns:getServerRHESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerRHEOuter">
+      <wsdl:input message="tns:getServerRHEOuterSoapIn" />
+      <wsdl:output message="tns:getServerRHEOuterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input message="tns:getVersionSoapIn" />
+      <wsdl:output message="tns:getVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN">
+      <wsdl:input message="tns:getStudentDataFromEGNSoapIn" />
+      <wsdl:output message="tns:getStudentDataFromEGNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGNExtended">
+      <wsdl:input message="tns:getStudentDataFromEGNExtendedSoapIn" />
+      <wsdl:output message="tns:getStudentDataFromEGNExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUniversityStudentDataFromEGN">
+      <wsdl:input message="tns:getUniversityStudentDataFromEGNSoapIn" />
+      <wsdl:output message="tns:getUniversityStudentDataFromEGNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIndicatorsData">
+      <wsdl:input message="tns:getIndicatorsDataSoapIn" />
+      <wsdl:output message="tns:getIndicatorsDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUniversitiesData">
+      <wsdl:input message="tns:getUniversitiesDataSoapIn" />
+      <wsdl:output message="tns:getUniversitiesDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpecialitiesData">
+      <wsdl:input message="tns:getSpecialitiesDataSoapIn" />
+      <wsdl:output message="tns:getSpecialitiesDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfNapravleniaData">
+      <wsdl:input message="tns:getProfNapravleniaDataSoapIn" />
+      <wsdl:output message="tns:getProfNapravleniaDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValidDatesData">
+      <wsdl:input message="tns:getValidDatesDataSoapIn" />
+      <wsdl:output message="tns:getValidDatesDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSoap" type="tns:wsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getServer">
+      <soap:operation soapAction="http://www2.mon.bg/getServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerRHE">
+      <soap:operation soapAction="http://www2.mon.bg/getServerRHE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerRHEOuter">
+      <soap:operation soapAction="http://www2.mon.bg/getServerRHEOuter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap:operation soapAction="http://www2.mon.bg/getVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN">
+      <soap:operation soapAction="http://www2.mon.bg/getStudentDataFromEGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGNExtended">
+      <soap:operation soapAction="http://www2.mon.bg/getStudentDataFromEGNExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUniversityStudentDataFromEGN">
+      <soap:operation soapAction="http://www2.mon.bg/getUniversityStudentDataFromEGN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIndicatorsData">
+      <soap:operation soapAction="http://www2.mon.bg/getIndicatorsData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUniversitiesData">
+      <soap:operation soapAction="http://www2.mon.bg/getUniversitiesData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecialitiesData">
+      <soap:operation soapAction="http://www2.mon.bg/getSpecialitiesData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfNapravleniaData">
+      <soap:operation soapAction="http://www2.mon.bg/getProfNapravleniaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValidDatesData">
+      <soap:operation soapAction="http://www2.mon.bg/getValidDatesData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSoap12" type="tns:wsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getServer">
+      <soap12:operation soapAction="http://www2.mon.bg/getServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerRHE">
+      <soap12:operation soapAction="http://www2.mon.bg/getServerRHE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServerRHEOuter">
+      <soap12:operation soapAction="http://www2.mon.bg/getServerRHEOuter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <soap12:operation soapAction="http://www2.mon.bg/getVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGN">
+      <soap12:operation soapAction="http://www2.mon.bg/getStudentDataFromEGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentDataFromEGNExtended">
+      <soap12:operation soapAction="http://www2.mon.bg/getStudentDataFromEGNExtended" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUniversityStudentDataFromEGN">
+      <soap12:operation soapAction="http://www2.mon.bg/getUniversityStudentDataFromEGN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIndicatorsData">
+      <soap12:operation soapAction="http://www2.mon.bg/getIndicatorsData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUniversitiesData">
+      <soap12:operation soapAction="http://www2.mon.bg/getUniversitiesData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecialitiesData">
+      <soap12:operation soapAction="http://www2.mon.bg/getSpecialitiesData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfNapravleniaData">
+      <soap12:operation soapAction="http://www2.mon.bg/getProfNapravleniaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValidDatesData">
+      <soap12:operation soapAction="http://www2.mon.bg/getValidDatesData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws">
+    <wsdl:port name="wsSoap" binding="tns:wsSoap">
+      <soap:address location="http://www2.mon.bg/ws/ws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSoap12" binding="tns:wsSoap12">
+      <soap12:address location="http://www2.mon.bg/ws/ws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
