@@ -317,7 +317,7 @@ class MonStudentHighSchoolDiplomaData implements IMonStudentHighSchoolDiplomaDat
 	}
 	
 	private static BigDecimal stringToBigDecimal(String st){
-		return BigDecimal.valueOf(Double.valueOf(st));
+		return BigDecimal.valueOf(Double.valueOf(st.replace(",", ".")));
 	}
 	
 	public String getXml() {
