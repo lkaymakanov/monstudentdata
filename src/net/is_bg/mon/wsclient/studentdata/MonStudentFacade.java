@@ -1,6 +1,7 @@
 package net.is_bg.mon.wsclient.studentdata;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,7 +29,7 @@ public class MonStudentFacade {
 	 * @throws JAXBException 
 	 * @throws ClassNotFoundException 
 	 */
-	public static  IMonStudentHighSchoolImagesData getStudentImagesData(String ein) throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException, JAXBException{
+	public static  List<IMonStudentHighSchoolImagesData> getStudentImagesData(String ein) throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException, JAXBException{
 		return  MonStudentHighSchoolImagesData.getStudentImagesData(ein);
 	}
 	

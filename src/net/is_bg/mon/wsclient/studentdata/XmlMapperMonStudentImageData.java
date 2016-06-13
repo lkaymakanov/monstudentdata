@@ -8,10 +8,6 @@ import javax.xml.bind.annotation.XmlElement;
 class XmlMapperMonStudentImageData {
 
 	private List<String> images = new ArrayList<String>();
-	{
-		images.add("image1");
-		images.add("image2");
-	}
 	
 	
 	@XmlElement(name="image")

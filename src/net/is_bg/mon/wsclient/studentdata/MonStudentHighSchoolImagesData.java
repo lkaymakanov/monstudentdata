@@ -20,7 +20,8 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 	private String xml;
 	private static String xmlStructure = null;
 	private List<MonImage> images = new ArrayList<MonImage>();
-	private XmlMapperMonStudentHighSchoolImagesData student;
+	private XmlMapperMonStudentHighSchoolImagesData students;
+	private List<IMonStudentHighSchoolImagesData> imagesData = new ArrayList<IMonStudentHighSchoolImagesData>();
 	
 	   /***
      * The keys of fields on MON xml result Structure for student dimploma!!!
@@ -51,7 +52,9 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
     };
     
     
-   
+   private MonStudentHighSchoolImagesData(){
+	   initMap();
+   }
 	
 	
 	private MonStudentHighSchoolImagesData(String ein) throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException, JAXBException{
@@ -59,13 +62,18 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 		if(xmlStructure == null)
 		{
 			XmlMapperMonStudentHighSchoolImagesData idata = new XmlMapperMonStudentHighSchoolImagesData();
-			idata.setStudent(new XmlMapperMonHighSchoolImageStudent(map));
 			xmlStructure = XmlSerialize.objectToXml(idata);
 		}
 		xml = CallMonServices.getStudentDataFromAdminRD(ein);
-		student = XmlSerialize.xmlToObject(xml, XmlMapperMonStudentHighSchoolImagesData.class);
-		loadMap();
-		loadImages();
+		students = XmlSerialize.xmlToObject(xml, XmlMapperMonStudentHighSchoolImagesData.class);
+		
+		//load each student data & images
+		for(XmlMapperMonHighSchoolImageStudent student :students.getStudent()){
+			MonStudentHighSchoolImagesData imgdata = new MonStudentHighSchoolImagesData();
+			imgdata.loadMap(student);
+			imgdata.loadImages(student);
+			imagesData.add(imgdata);
+		}
 	}
 	
 	/***
@@ -76,8 +84,8 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 	 * @throws JAXBException 
 	 * @throws ClassNotFoundException 
 	 */
-	public static IMonStudentHighSchoolImagesData getStudentImagesData(String ein) throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException, JAXBException{
-		return new MonStudentHighSchoolImagesData(ein);
+	public static List<IMonStudentHighSchoolImagesData> getStudentImagesData(String ein) throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException, JAXBException{
+		return new MonStudentHighSchoolImagesData(ein).imagesData;
 	}
 	
 	
@@ -160,8 +168,8 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 		return map.get(key);
 	}
 	
-	private void loadMap(){
-		XmlMapperMonHighSchoolImageStudent students =  student.getStudent();
+	private void loadMap(XmlMapperMonHighSchoolImageStudent students){
+		//XmlMapperMonHighSchoolImageStudent students =  student.getStudent().get(0);
 		ValueDescription entry = null;
 		entry = map.get("QUERY");
 		entry.setValue(students.getQUERY());
@@ -187,8 +195,8 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 		entry.setValue(students.getJ());
 	}
 	
-	private void loadImages(){
-		XmlMapperMonHighSchoolImageStudent students =  student.getStudent();
+	private void loadImages(XmlMapperMonHighSchoolImageStudent students){
+		//XmlMapperMonHighSchoolImageStudent students =  student.getStudent().get(0);
 		for(String base64Img: students.getK().getImages()){
 			if(base64Img != null) {
 				MonImage image = new MonImage();

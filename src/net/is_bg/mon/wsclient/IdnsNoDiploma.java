@@ -1,8 +1,22 @@
 package net.is_bg.mon.wsclient;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+import net.is_bg.mon.wsclient.studentdata.IMonStudentHighSchoolDiplomaData;
+import net.is_bg.mon.wsclient.studentdata.IMonStudentHighSchoolImagesData;
+import net.is_bg.mon.wsclient.studentdata.MonImage;
+import net.is_bg.mon.wsclient.studentdata.MonStudentFacade;
+import net.is_bg.util.FileUtil;
+
 
 public class IdnsNoDiploma {
-	/*long [] arr = new long [] {
+/*	long [] arr = new long [] {
 			434l
 	};
 	
@@ -40,7 +54,7 @@ public class IdnsNoDiploma {
 		em.createNativeQuery(sql).executeUpdate();
 		entityTransaction.commit();
 		
-	}
+	}*/
 	
 	
 	public static void main(String [] args) throws ClassNotFoundException, JAXBException, IOException, ParserConfigurationException, SAXException{
@@ -63,27 +77,36 @@ public class IdnsNoDiploma {
 		String PASSWORD = "iuis";
 		
 		//TestBean t = new TestBean();		
-    	AppUtil.initTestConnecton(DB_URL, USER, PASSWORD);
+    	//AppUtil.initTestConnecton(DB_URL, USER, PASSWORD);
     	//System.out.println(new Sha512().digest("kp"));
 		
 		//init db
-		
+		String studentEIN = "00000000";// "9612026550";
 		
 		//System.out.println(XmlSerialize.objectToXml(new Response()));
 		//Response r = XmlSerialize.xmlToObject(s, Response.class);
-		IdnsNoDiploma nod = new  IdnsNoDiploma();
-		for(long studentEIN : nod.arr)
+		//IdnsNoDiploma nod = new  IdnsNoDiploma();
+		//for(long studentEIN : nod.arr)
 		{
 			try{
-				IMonStudentHighSchoolDiplomaData data =  MonStudentFacade.getStudentHighSchoolDiplomaData(studentEIN);
+				List<IMonStudentHighSchoolImagesData> data =  MonStudentFacade.getStudentImagesData(studentEIN);
 				System.out.println(data);
-				String sql = (nod.getInsertString(data));
-				nod.execute(sql);
-				FileUtil.saveFileToDisk(saveFilesDir + studentEIN + "_1.jpeg", images.getImages().get(0).getFileData());
-				FileUtil.saveFileToDisk(saveFilesDir + studentEIN + "_2.jpeg", images.getImages().get(1).getFileData());
+				//String sql = (nod.getInsertString(data));
+				//nod.execute(sql);
+				for(IMonStudentHighSchoolImagesData d: data){
+					long incNo = d.getGraduateYear();
+					
+					int i = 1;
+					for(MonImage img : d.getImages()){
+						FileUtil.saveFileToDisk(saveFilesDir + studentEIN + "_"+ incNo + "_" + i + "_.jpeg", img.getFileData());
+						i++;
+					}
+				}
+				//FileUtil.saveFileToDisk(saveFilesDir + studentEIN + "_1.jpeg", data.getImages().get(0).getFileData());
+				//FileUtil.saveFileToDisk(saveFilesDir + studentEIN + "_2.jpeg", data.getImages().get(1).getFileData());
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
 		}
-	}*/
+	}
 }
