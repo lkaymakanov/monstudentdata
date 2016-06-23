@@ -169,7 +169,6 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 	}
 	
 	private void loadMap(XmlMapperMonHighSchoolImageStudent students){
-		//XmlMapperMonHighSchoolImageStudent students =  student.getStudent().get(0);
 		ValueDescription entry = null;
 		entry = map.get("QUERY");
 		entry.setValue(students.getQUERY());
@@ -196,7 +195,6 @@ class MonStudentHighSchoolImagesData  implements IMonStudentHighSchoolImagesData
 	}
 	
 	private void loadImages(XmlMapperMonHighSchoolImageStudent students){
-		//XmlMapperMonHighSchoolImageStudent students =  student.getStudent().get(0);
 		for(String base64Img: students.getK().getImages()){
 			if(base64Img != null) {
 				MonImage image = new MonImage();
