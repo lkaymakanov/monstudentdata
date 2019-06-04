@@ -8,6 +8,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import net.is_bg.mon.wsclient.CallMonServices;
 import net.is_bg.mon.wsclient.studentdata.IMonStudentHighSchoolDiplomaData;
 import net.is_bg.mon.wsclient.studentdata.IMonStudentHighSchoolImagesData;
 import net.is_bg.mon.wsclient.studentdata.MonStudentHighSchoolDiplomaData;
@@ -19,6 +20,11 @@ import net.is_bg.mon.wsclient.studentdata.MonStudentHighSchoolImagesData;
  *
  */
 public class MonStudentFacade {
+	
+	public static void setUserPass(String user, String pass) {
+		CallMonServices.setUserPass(user, pass);
+	}
+	
 	/**
 	 * Retrieves images data for candidate student by ein in format suitable for process
 	 * @param ein

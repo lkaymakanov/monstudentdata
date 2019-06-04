@@ -14,8 +14,13 @@ import net.is_bg.mon.wsclient.stub.WsnacidStub.GetStudentDataFromLIN_AdminRHE;
 
 public class CallMonServices {
 
-	private final static String user = "trumf";
-	private final static String pass = "mf1289";
+	private  static String user = "trumf";
+	private  static String pass = "tg567s1a";
+	
+	public static void setUserPass(String user, String pass) {
+		CallMonServices.user = user;
+		CallMonServices.pass = pass;
+	}
 	
 	//================================ spravka za danni  ot diplomi za sredno obrazovanie=========================
 	private static String getStudentDataForDiploma(long EGN, String user, String pass) throws AxisFault, RemoteException{
